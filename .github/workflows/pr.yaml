@@ -10,11 +10,12 @@ jobs:
       - uses: actions/checkout@v2
       - uses: Azure/bicep-build-action@v1.0.0
         with:
-          bicepFilePath: ./iac/deploy.bicep
-          outputFilePath: ./iac/deploy.json
+          bicepFilePath: ./iac/azuredeploy.bicep
+          outputFilePath: ./iac/azuredeploy.json
       - uses: microsoft/action-armttk@0.0.5
         with:
-          # github_token: ${{ secrets.github_token }}
+          github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: warning
-          glob_pattern: "./iac/**/*.json"
+          workdir: "./iac"
+          glob_pattern: "**/*.json"
