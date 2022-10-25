@@ -8,10 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: Azure/bicep-build-output@v1.0.0
+        with:
+          bicepFilePath: ./iac/deploy.bicep
+          outputFilePath: ./iac/deploy.json
       - uses: microsoft/action-armttk@0.0.5
         with:
           # github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: warning
-          bicepFile: deploy.bicep
-          workdir: ./iac
+          global_pattern: "**/*.json"
