@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: microsoft/action-armttk@v1
+      - uses: microsoft/action-armttk@0.0.5
         with:
           # github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
