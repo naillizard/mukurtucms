@@ -17,4 +17,4 @@ jobs:
           # github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: warning
-          global_pattern: "**/*.json"
+          glob_pattern: "./iac/**/*.json"
